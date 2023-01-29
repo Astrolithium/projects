@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ ticker }}
+{% endblock %}
+
+{% block main %}
+    <h1>The stock price for {{ ticker }} is:</h1>
+    <p>${{ stockprice.price }}</p>
+{% endblock %}
