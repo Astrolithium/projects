@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Stock</th>
+        <th scope="col">Transaction type</th>
+        <th scope="col">Price at transaction</th>
+        <th scope="col">Number of shares transacted</th>
+        <th scope="col">Transaction time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in trans %}
+        {% if row.ttype == "buy" %}
+            <tr class="table-success">
+                <td>{{ row.ticker }}</td>
+                <td>{{ row.ttype }}</td>
+                <td>${{ row.price }}</td>
+                <td>{{ row.sharenum }}</td>
+                <td>{{ row.ttime }}</td>
+            </tr>
+        {% else %}
+            <tr class="table-danger">
+                <td>{{ row.ticker }}</td>
+                <td>{{ row.ttype }}</td>
+                <td>${{ row.price }}</td>
+                <td>{{ row.sharenum }}</td>
+                <td>{{ row.ttime }}</td>
+            </tr>
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
